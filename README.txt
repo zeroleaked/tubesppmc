@@ -33,11 +33,11 @@ struct initialize, append, print buat debug,
 Bagian konfigurasi: zir
 	struct arrKata, dictionary
 	fungsi:
-		void initializeArrKata (arrKata *arr_kata)
+		void initializeArrKata (arrKata *arr_kata) done
 			output: *arr_kata
-		void pushArrKata (arrKata arr_kata, char *kata)
-		void printArrKata (arrKata)
-		void freeArrKata (arrKata *ptr)
+		void pushArrKata (arrKata arr_kata, char *kata) done
+		void printArrKata (arrKata) done
+		void freeArrKata (arrKata *ptr) done
 		void initializeDictionary (dictionary *ptr)
 		void pushDictionary (dictionary tabel_lookup, arrKata *key, arrKata *value)
 		void printDictionary (dictionary tabel_lookup)
