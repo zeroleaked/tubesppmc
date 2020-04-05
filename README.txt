@@ -73,15 +73,13 @@ Bagian handling/flow: ken
 	
 repo github kita
 main -	|- konfigurasi	-|- konfigurasi.h
-		|
-		|- input		-|- input.h
-		|
-		|- lookup		-|- lookup.h
-		|
-		|- pengacakan	-|- pengacakan.h
-		|
-		|- flow			-|- flow.h
-		|
-		|- main.c
-		|
-		|- read.me
+	|
+	|- input	-|- input.h
+	|
+	|- lookup	-|- lookup.h
+	|
+	|- pengacakan	-|- pengacakan.h
+	|
+	|- flow		-|- flow.h
+	|
+	|- main.c
