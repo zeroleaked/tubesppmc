@@ -38,10 +38,10 @@ Bagian konfigurasi: zir
 		void pushArrKata (arrKata arr_kata, char *kata) done
 		void printArrKata (arrKata) done
 		void freeArrKata (arrKata *ptr) done
-		void initializeDictionary (dictionary *ptr)
-		void pushDictionary (dictionary tabel_lookup, arrKata *key, arrKata *value)
-		void printDictionary (dictionary tabel_lookup)
-		void freeDictionary (dictionary *ptr)
+		void initializeDictionary (dictionary *ptr) ternyata gak perlu
+		void pushDictionary (dictionary tabel_lookup, arrKata *key, arrKata *value) done
+		void printDictionary (dictionary tabel_lookup) done
+		void freeDictionary (dictionary *ptr) done
 		
 Bagian input: habibi
 	fungsi:
