@@ -18,7 +18,6 @@ void printArrKata(arrKata arr_kata) {
   printf("]\n");
 }
 
-// menghapus dan
 void pushArrKata(arrKata *arr_kata, char *kata){
   arr_kata->length ++;
   arr_kata->array = realloc(arr_kata->array, arr_kata->length * sizeof(char*));
