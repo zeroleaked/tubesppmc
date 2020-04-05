@@ -51,44 +51,43 @@ int main(){
   #endif
 
   #ifdef TEST_CASE_3
-  int n = 2;
-
-  arrKata key1;
-  initializeArrKata(&key1);
-  pushArrKata(&key1, "the");
-  pushArrKata(&key1, "quick");
-
-  arrKata val1;
-  initializeArrKata(&val1);
-  pushArrKata(&val1, "brown");
-  pushArrKata(&val1, "fox");
-  pushArrKata(&val1, "jumped");
-
-  arrKata key2;
-  initializeArrKata(&key2);
-  pushArrKata(&key2, "over");
-  pushArrKata(&key2, "the");
-
-  arrKata val2;
-  initializeArrKata(&val2);
-  pushArrKata(&val2, "lazy");
-  pushArrKata(&val2, "white");
-  pushArrKata(&val2, "Calico");
-  pushArrKata(&val2, "cat");
-
   // initialize
   arrKata* dict;
   dict = NULL;
 
-  pushDictionary(&dict, &key1, &val1);
-  pushDictionary(&dict, &key2, &val2);
+  int n = 2;
 
-  // printArrKata(*dict);
+  arrKata key;
+  initializeArrKata(&key);
+  pushArrKata(&key, "the");
+  pushArrKata(&key, "quick");
+  pushDictionary(&dict, &key, "brown", n);
+
+  initializeArrKata(&key);
+  pushArrKata(&key, "the");
+  pushArrKata(&key, "quick");
+  pushDictionary(&dict, &key, "fox", n);
+
+  initializeArrKata(&key);
+  pushArrKata(&key, "the");
+  pushArrKata(&key, "quick");
+  pushDictionary(&dict, &key, "jumped", n);
+
+  initializeArrKata(&key);
+  pushArrKata(&key, "over");
+  pushArrKata(&key, "the");
+  pushDictionary(&dict, &key, "lazy", n);
+
+  initializeArrKata(&key);
+  pushArrKata(&key, "over");
+  pushArrKata(&key, "the");
+  pushDictionary(&dict, &key, "cats", n);
 
   printDictionary(*dict, n);
 
   freeDictionary(dict);
   #endif
+
 
   #ifdef TEST_CASE_4
   int n = 2;
@@ -99,7 +98,7 @@ int main(){
   FILE *fptr = fopen(filename, "r");
   char word[MAX_WORD_LENGTH];
 
-  while (fscanf(fptr, " %s", word) == 1 && arr_kata.length < 20) {
+  while (fscanf(fptr, " %s", word) == 1) {
     pushArrKata(&arr_kata, word);
   }
   printArrKata(arr_kata);

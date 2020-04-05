@@ -88,6 +88,7 @@ int wordUnique(arrKata dict, char *word, int n) {
 // jika key belum ada, buat node baru,
 // jika key sudah ada, jika value belum ada, tambahkan value ke key
 // jika key sudah ada, jika value sudah ada, tidak melakukan apa apa
+// key dibebaskan setelah dimasukkan
 void pushDictionary(arrKata **dict, arrKata *key, char *value, int n) {
     arrKata* new_node = (arrKata*) malloc(sizeof(arrKata*));
     initializeArrKata(new_node);
@@ -115,6 +116,14 @@ void pushDictionary(arrKata **dict, arrKata *key, char *value, int n) {
       }
       current = current->next;
     }
+    if ( compareKey(*current, *new_node, n) ) {
+      if ( wordUnique(*current, value, n) )
+        pushArrKata(current, value);
+        freeArrKata(new_node);
+        free(new_node);
+      return;
+    }
+
     current->next = new_node;
     return;
 }
