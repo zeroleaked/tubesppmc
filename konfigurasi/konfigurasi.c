@@ -96,7 +96,6 @@ void pushDictionary(arrKata **dict, arrKata *key, char *value, int n) {
     for (int i = 0; i < key->length; i++) {
       pushArrKata(new_node, key->array[i]);
     }
-    freeArrKata(key);
 
     pushArrKata(new_node, value);
 

@@ -1,10 +1,13 @@
+// CARA RUN
+// >> gcc test.c konfigurasi .c -o a
+// >> ./a
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "konfigurasi.h"
 
 #define MAX_WORD_LENGTH 255
-
 
 // pilih satu test case
 // #define TEST_CASE_1
@@ -62,26 +65,31 @@ int main(){
   pushArrKata(&key, "the");
   pushArrKata(&key, "quick");
   pushDictionary(&dict, &key, "brown", n);
+  freeArrKata(&key);
 
   initializeArrKata(&key);
   pushArrKata(&key, "the");
   pushArrKata(&key, "quick");
   pushDictionary(&dict, &key, "fox", n);
+  freeArrKata(&key);
 
   initializeArrKata(&key);
   pushArrKata(&key, "the");
   pushArrKata(&key, "quick");
   pushDictionary(&dict, &key, "jumped", n);
+  freeArrKata(&key);
 
   initializeArrKata(&key);
   pushArrKata(&key, "over");
   pushArrKata(&key, "the");
   pushDictionary(&dict, &key, "lazy", n);
+  freeArrKata(&key);
 
   initializeArrKata(&key);
   pushArrKata(&key, "over");
   pushArrKata(&key, "the");
   pushDictionary(&dict, &key, "cats", n);
+  freeArrKata(&key);
 
   printDictionary(*dict, n);
 
@@ -117,10 +125,11 @@ int main(){
     }
     char *value = arr_kata.array[i+n];
     pushDictionary(&dict, &key, value, n);
+    freeArrKata(&key);
   }
+  freeArrKata(&arr_kata);
   printDictionary(*dict, n);
 
-  freeArrKata(&arr_kata);
   freeDictionary(dict);
   #endif
 
