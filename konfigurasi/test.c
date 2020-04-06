@@ -14,6 +14,7 @@
 // #define TEST_CASE_2
 // #define TEST_CASE_3
 #define TEST_CASE_4
+// #define TEST_CASE_5
 
 int main(){
 
@@ -56,7 +57,7 @@ int main(){
   #ifdef TEST_CASE_3
   // initialize
   arrKata* dict;
-  dict = NULL;
+  initializeDictionary(dict);
 
   int n = 2;
 
@@ -113,7 +114,7 @@ int main(){
 
   // buat dictionary
   arrKata *dict;
-  dict = NULL;
+  initializeDictionary(dict);
 
   arrKata *current = dict;
   for (int i = 0; i < arr_kata.length - n; i++) {
@@ -129,8 +130,18 @@ int main(){
   }
   freeArrKata(&arr_kata);
   printDictionary(*dict, n);
+  printf("length = %d\n", getDictionaryLength(dict));
+  arrKata query = peekDictionary(dict, 1);
+  printArrKata(query);
 
   freeDictionary(dict);
+  #endif
+
+  #ifdef TEST_CASE_5
+  arrKata *dict;
+  initializeDictionary(dict);
+  printf("length = %d\n", getDictionaryLength(dict));
+
   #endif
 
 

@@ -39,15 +39,19 @@ void freeArrKata(arrKata *arr_kata) {
 }
 
 
-void printKeys(arrKata dict, int n) {
+void printKey(arrKata dict, int n) {
   dict.length = n;
   printArrKata(dict);
 }
 
-void printValues(arrKata dict, int n) {
+void printValue(arrKata dict, int n) {
   dict.length = dict.length - n;
   dict.array = &dict.array[n];
   printArrKata(dict);
+}
+
+void initializeDictionary(arrKata *dict) {
+    dict = NULL;
 }
 
 void printDictionary(arrKata dict, int n) {
@@ -56,17 +60,17 @@ void printDictionary(arrKata dict, int n) {
   while (current->next != NULL){
     printf("row %d\n", i);
     printf("key\t= ");
-    printKeys(*current, n);
+    printKey(*current, n);
     printf("value\t= ");
-    printValues(*current, n);
+    printValue(*current, n);
     current = current->next;
     i++;
   }
   printf("row %d\n", i);
   printf("key\t= ");
-  printKeys(*current, n);
+  printKey(*current, n);
   printf("value\t= ");
-  printValues(*current, n);
+  printValue(*current, n);
 }
 
 int compareKey(arrKata dict1, arrKata dict2, int n) {
@@ -85,10 +89,6 @@ int wordUnique(arrKata dict, char *word, int n) {
   return 1;
 }
 
-// jika key belum ada, buat node baru,
-// jika key sudah ada, jika value belum ada, tambahkan value ke key
-// jika key sudah ada, jika value sudah ada, tidak melakukan apa apa
-// key dibebaskan setelah dimasukkan
 void pushDictionary(arrKata **dict, arrKata *key, char *value, int n) {
     arrKata* new_node = (arrKata*) malloc(sizeof(arrKata*));
     initializeArrKata(new_node);
@@ -103,6 +103,7 @@ void pushDictionary(arrKata **dict, arrKata *key, char *value, int n) {
        *dict = new_node;
        return;
     }
+
 
     arrKata *current = *dict;
     while (current->next != NULL) {
@@ -130,4 +131,14 @@ void pushDictionary(arrKata **dict, arrKata *key, char *value, int n) {
 void freeDictionary(arrKata *dict) {
   if (dict->next != NULL) freeDictionary(dict->next);
   freeArrKata(dict);
+}
+
+int getDictionaryLength (arrKata *dict) {
+  if (dict == NULL) return 0;
+  return 1 + getDictionaryLength(dict->next);
+}
+
+arrKata peekDictionary(arrKata *dict, int i) {
+  if (i == 0) return *dict;
+  else return peekDictionary(dict->next, i - 1);
 }
