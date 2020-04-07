@@ -24,7 +24,7 @@ void freeArrKata(arrKata *arr_kata);
 
 
 //initialize dictionary lihat TEST_CASE_3
-void initializeDictionary(arrKata *dict);
+void initializeDictionary(arrKata **dict);
 
 // jika key tidak ada di dict, menambahkan key baru, jika key ada dan value
 // tidak ada menambahkan value, jika key ada dan value ada tidak melakukan apa apa
