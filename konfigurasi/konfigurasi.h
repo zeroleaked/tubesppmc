@@ -34,7 +34,7 @@ void pushDictionary(arrKata **dict, arrKata *key, char *value, int n);
 void printDictionary(arrKata dict, int n);
 
 // harus dipanggis ketika dict selesai dipakai
-void freeDictionary(arrKata *dict);
+void freeDictionary(arrKata **dict);
 
 
 // panjang dict (banyaknya baris)
