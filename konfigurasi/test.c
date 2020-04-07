@@ -57,7 +57,7 @@ int main(){
   #ifdef TEST_CASE_3
   // initialize
   arrKata* dict;
-  initializeDictionary(dict);
+  initializeDictionary(&dict);
 
   int n = 2;
 
@@ -114,7 +114,7 @@ int main(){
 
   // buat dictionary
   arrKata *dict;
-  initializeDictionary(dict);
+  initializeDictionary(&dict);
 
   arrKata *current = dict;
   for (int i = 0; i < arr_kata.length - n; i++) {
@@ -139,7 +139,7 @@ int main(){
 
   #ifdef TEST_CASE_5
   arrKata *dict;
-  initializeDictionary(dict);
+  initializeDictionary(&dict);
   printf("length = %d\n", getDictionaryLength(dict));
 
   #endif
