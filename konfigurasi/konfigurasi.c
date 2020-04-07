@@ -50,8 +50,8 @@ void printValue(arrKata dict, int n) {
   printArrKata(dict);
 }
 
-void initializeDictionary(arrKata *dict) {
-    dict = NULL;
+void initializeDictionary(arrKata **dict) {
+    *dict = NULL;
 }
 
 void printDictionary(arrKata dict, int n) {
