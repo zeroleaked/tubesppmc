@@ -23,7 +23,7 @@ void freeArrKata(arrKata *arr_kata);
 
 
 
-// harus dipanggil setelah deklarasi *arrKata (dictionary), sebelum prosedur dictionary lainnya
+//initialize dictionary
 void initializeDictionary(arrKata **dict);
 
 // jika key tidak ada di dict, menambahkan key baru, jika key ada dan value
@@ -33,7 +33,7 @@ void pushDictionary(arrKata **dict, arrKata *key, char *value, int n);
 // print setiap pasangan key-value yang ada di dict, n adalah banyak kata pada key
 void printDictionary(arrKata dict, int n);
 
-// harus dipanggis ketika dictionary selesai dipakai
+// harus dipanggis ketika dict selesai dipakai
 void freeDictionary(arrKata **dict);
 
 

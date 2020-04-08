@@ -23,8 +23,8 @@ void freeArrKata(arrKata *arr_kata);
 
 
 
-// harus dipanggil setelah deklarasi *arrKata (dictionary), sebelum prosedur dictionary lainnya
-void initializeDictionary(arrKata **dict);
+//initialize dictionary lihat TEST_CASE_3
+void initializeDictionary(arrKata *dict);
 
 // jika key tidak ada di dict, menambahkan key baru, jika key ada dan value
 // tidak ada menambahkan value, jika key ada dan value ada tidak melakukan apa apa
@@ -33,8 +33,8 @@ void pushDictionary(arrKata **dict, arrKata *key, char *value, int n);
 // print setiap pasangan key-value yang ada di dict, n adalah banyak kata pada key
 void printDictionary(arrKata dict, int n);
 
-// harus dipanggis ketika dictionary selesai dipakai
-void freeDictionary(arrKata **dict);
+// harus dipanggis ketika dict selesai dipakai
+void freeDictionary(arrKata *dict);
 
 
 // panjang dict (banyaknya baris)
@@ -43,7 +43,7 @@ int getDictionaryLength(arrKata *dict);
 // memberikan baris ke-i dictionary, i HARUS lebih kecil dari panjang dict
 arrKata peekDictionary(arrKata *dict, int i);
 
-// membandingkan dua key pada arrKata, apabila sama maka True, apabila
+// membandingkan dua key pada entri dictionary, apabila sama maka True, apabila
 // beda maka false, n adalah banyak kata pada key
 int compareKey(arrKata dict1, arrKata dict2, int n);
 
