@@ -13,8 +13,8 @@
 // #define TEST_CASE_1
 // #define TEST_CASE_2
 // #define TEST_CASE_3
-#define TEST_CASE_4
-// #define TEST_CASE_5
+// #define TEST_CASE_4
+#define TEST_CASE_5
 
 int main(){
 
@@ -57,7 +57,7 @@ int main(){
   #ifdef TEST_CASE_3
   // initialize
   arrKata* dict;
-  initializeDictionary(dict);
+  initializeDictionary(&dict);
 
   int n = 2;
 
@@ -94,7 +94,7 @@ int main(){
 
   printDictionary(*dict, n);
 
-  freeDictionary(dict);
+  freeDictionary(&dict);
   #endif
 
 
@@ -114,7 +114,7 @@ int main(){
 
   // buat dictionary
   arrKata *dict;
-  initializeDictionary(dict);
+  initializeDictionary(&dict);
 
   arrKata *current = dict;
   for (int i = 0; i < arr_kata.length - n; i++) {
@@ -134,14 +134,23 @@ int main(){
   arrKata query = peekDictionary(dict, 1);
   printArrKata(query);
 
-  freeDictionary(dict);
+  freeDictionary(&dict);
   #endif
 
   #ifdef TEST_CASE_5
   arrKata *dict;
-  initializeDictionary(dict);
+  initializeDictionary(&dict);
   printf("length = %d\n", getDictionaryLength(dict));
 
+  arrKata key;
+  initializeArrKata(&key);
+  pushArrKata(&key, "the");
+  pushArrKata(&key, "quick");
+  pushDictionary(&dict, &key, "jumped", 2);
+  freeArrKata(&key);
+
+  printf("length = %d\n", getDictionaryLength(dict));
+  freeDictionary(&dict);
   #endif
 
 

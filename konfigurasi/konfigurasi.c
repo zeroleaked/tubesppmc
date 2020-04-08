@@ -50,8 +50,8 @@ void printValue(arrKata dict, int n) {
   printArrKata(dict);
 }
 
-void initializeDictionary(arrKata *dict) {
-    dict = NULL;
+void initializeDictionary(arrKata **dict) {
+    *dict = NULL;
 }
 
 void printDictionary(arrKata dict, int n) {
@@ -128,9 +128,9 @@ void pushDictionary(arrKata **dict, arrKata *key, char *value, int n) {
     return;
 }
 
-void freeDictionary(arrKata *dict) {
-  if (dict->next != NULL) freeDictionary(dict->next);
-  freeArrKata(dict);
+void freeDictionary(arrKata **dict) {
+  if ((*dict)->next != NULL) freeDictionary(&(*dict)->next);
+  freeArrKata(*dict);
 }
 
 int getDictionaryLength (arrKata *dict) {
