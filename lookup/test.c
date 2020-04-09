@@ -43,11 +43,20 @@ int main(){
   printDictionary(*dict, n);
   printf("length = %d\n", getDictionaryLength(dict));
 
-  printf("dict[1] = ");
-  arrKata query = peekDictionary(dict, 1);
-  printArrKata(query);
+
+  arrKata key;
+  initializeArrKata(&key);
+  pushArrKata(&key, "be");
+  pushArrKata(&key, "just");
+
+  arrKata value;
+  lookupDictionary(dict, n, key, &value);
+  printf("value = ");
+  printArrKata(value);
   printf("\n");
 
+  freeArrKata(&value);
+  freeArrKata(&key);
   freeDictionary(&dict);
   #endif
 
