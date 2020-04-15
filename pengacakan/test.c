@@ -1,52 +1,48 @@
+#include <stdlib.h>
+#include <time.h>
 #include <stdio.h>
 #include "pengacakan.h"
+#include "../konfigurasi/konfigurasi.h"
 
-#define tc1
-//#define tc2
-
-int main()
-{
-    #ifdef tc1
-    arrKata *dict, a, b, c, key;
+int main(){
     int n = 2;
-    
-    initializeArrKata(&a);
-    initializeArrKata(&b);
-    initializeArrKata(&c);
-    pushArrKata(&a, "Saya");
-    pushArrKata(&a, "mahasiswa");
-    pushArrKata(&a, "ITB");
-    pushArrKata(&b, "mahasiswa");
-    pushArrKata(&b, "ITB");
-    pushArrKata(&b, "yang");
-    pushArrKata(&c, "ITB");
-    pushArrKata(&c, "yang");
-    pushArrKata(&c, "rajin.");
-    pushArrKata(&c, "malas.");
 
-    b.next = &c;
-    a.next = &b;
-    dict = &a;
+  arrKata arr_kata;
+  initializeArrKata(&arr_kata);
+  char *filename = "test aja.txt";
+  FILE *fptr = fopen(filename, "r");
+  char word[MAX_WORD_LENGTH];
 
-    key = getRandomKey(dict, n);
-    printArrKata(key);
-    return 0;
-    #endif
+  while (fscanf(fptr, " %s", word) == 1) {
+    pushArrKata(&arr_kata, word);
+  }
+  printArrKata(arr_kata);
 
-    #ifdef tc2
-    arrKata a;
-    char *output;
-    int n = 2;
-    initializeArrKata(&a);
-    pushArrKata(&a, "ITB");
-    pushArrKata(&a, "Unisba");
-    pushArrKata(&a, "UI");
-    pushArrKata(&a, "Unpad");
-    printArrKata(a);
-    output = randomWord(&a);
-    printf("%s\n", output); 
-    #endif
+  // buat dictionary
+  arrKata *dict;
+  initializeDictionary(&dict);
+
+  arrKata *current = dict;
+  for (int i = 0; i < arr_kata.length - n; i++) {
+    arrKata key;
+    initializeArrKata(&key);
+
+    for (int j = 0; j < n; j++) {
+      pushArrKata(&key, arr_kata.array[i+j]);
+    }
+    char *value = arr_kata.array[i+n];
+    pushDictionary(&dict, &key, value, n);
+    freeArrKata(&key);
+  }
+  freeArrKata(&arr_kata);
+  printDictionary(*dict, n);
+  printf("length = %d\n", getDictionaryLength(dict));
+  arrKata query = peekDictionary(dict, 1);
+  printArrKata(query);
+
+  freeDictionary(&dict);
 
 
 }
+
 
