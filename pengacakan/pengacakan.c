@@ -6,7 +6,6 @@ arrKata getRandomKey(arrKata *dict, int n)
 {
     arrKata temp, toReturn;
     int index, dictLength, currRow = 0, i;
-    temp = dict;
 
     srand(time(0));
 

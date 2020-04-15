@@ -1,34 +1,33 @@
 #include <stdlib.h>
 #include <time.h>
-#include "konfigurasi.h"
+#include "../konfigurasi/konfigurasi.h"
 
 arrKata getRandomKey(arrKata *dict, int n)
 {
-    arrKata *temp, toReturn;
+    arrKata temp, toReturn;
     int index, dictLength, currRow = 0, i;
-    initializeArrKata(temp);
-
     srand(time(0));
 
     dictLength = getDictionaryLength(dict);
     index = rand()%dictLength;
 
     //menuju ke row yang diinginkan (hasil random)
-    *temp = peekDictionary(dict, index);
+    temp = peekDictionary(dict, index);
 
     //sudah di Row yang diinginkan, assign nilai-nilai untuk return
-    toReturn.next = NULL;
-    toReturn.length = n;
+    initializeArrKata(&toReturn);
     for ( i = 0; i < n; i++)
     {
-        pushArrKata(&toReturn, temp->array[i]);
+        pushArrKata(&toReturn, temp.array[i]);
     }
     
     return toReturn;
 }
 char* randomWord(arrKata *value){
     int index;
+    srand(time(0));
     index= rand()%(value->length);
-    char *word=value->array[indeks];
-    return (*word);
+    char *word;
+    word = value->array[index];
+    return (word);
 }
