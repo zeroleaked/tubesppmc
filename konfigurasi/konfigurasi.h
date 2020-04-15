@@ -125,9 +125,9 @@ int compareKey(arrKata dict1, arrKata dict2, int n) {
   // true if same
   printArrKata(dict1);
   printArrKata(dict2);
-  // for (int i = 0; i < n; i++)
-  //   if ( strcmp(dict1.array[i], dict2.array[i]) )
-  //     return 0;
+  for (int i = 0; i < n; i++)
+    if ( strcmp(dict1.array[i], dict2.array[i]) )
+    return 0;
   return 1;
 }
 
@@ -157,24 +157,27 @@ void pushDictionary(arrKata **dict, arrKata *key, char *value, int n) {
 
     arrKata *current = *dict;
     while (current->next != NULL) {
-      if ( compareKey(*current, *new_node, n) ) {
-        if ( wordUnique(*current, value, n) )
-          pushArrKata(current, value);
-          freeArrKata(new_node);
-          free(new_node);
-        return;
-      }
-      current = current->next;
+      printf("s\n");
+      printArrKata(*current);
+      printArrKata(*new_node);
+      // if ( compareKey(*current, *new_node, n) ) {
+      //   if ( wordUnique(*current, value, n) )
+      //     pushArrKata(current, value);
+      //     freeArrKata(new_node);
+      //     free(new_node);
+      //   return;
+      // }
+      // current = current->next;
     }
-    if ( compareKey(*current, *new_node, n) ) {
-      if ( wordUnique(*current, value, n) )
-        pushArrKata(current, value);
-        freeArrKata(new_node);
-        free(new_node);
-      return;
-      }
+    // if ( compareKey(*current, *new_node, n) ) {
+    //   if ( wordUnique(*current, value, n) )
+    //     pushArrKata(current, value);
+    //     freeArrKata(new_node);
+    //     free(new_node);
+    //   return;
+    //   }
 
-    current->next = new_node;
+    // current->next = new_node;
     return;
 }
 

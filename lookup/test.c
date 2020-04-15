@@ -5,7 +5,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "../konfigurasi/konfigurasi.h"
 #include "lookup.h"
 
 #define MAX_WORD_LENGTH 255
@@ -36,28 +35,27 @@ int main(){
 
   // buat dictionary
   arrKata *dict;
-
   createDictionary(n, arr_kata, &dict);
 
-  freeArrKata(&arr_kata);
-  printDictionary(*dict, n);
-  printf("length = %d\n", getDictionaryLength(dict));
+  // freeArrKata(&arr_kata);
+  // printDictionary(*dict, n);
+  // printf("length = %d\n", getDictionaryLength(dict));
 
 
-  arrKata key;
-  initializeArrKata(&key);
-  pushArrKata(&key, "be");
-  pushArrKata(&key, "just");
+  // arrKata key;
+  // initializeArrKata(&key);
+  // pushArrKata(&key, "be");
+  // pushArrKata(&key, "just");
 
-  arrKata value;
-  lookupDictionary(dict, n, key, &value);
-  printf("value = ");
-  printArrKata(value);
-  printf("\n");
+  // arrKata value;
+  // lookupDictionary(dict, n, key, &value);
+  // printf("value = ");
+  // printArrKata(value);
+  // printf("\n");
 
-  freeArrKata(&value);
-  freeArrKata(&key);
-  freeDictionary(&dict);
+  // freeArrKata(&value);
+  // freeArrKata(&key);
+  // freeDictionary(&dict);
   #endif
 
   return 0;

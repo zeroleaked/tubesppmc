@@ -12,9 +12,9 @@
 // pilih satu test case
 // #define TEST_CASE_1
 // #define TEST_CASE_2
-// #define TEST_CASE_3
+ #define TEST_CASE_3
 // #define TEST_CASE_4
-#define TEST_CASE_5
+//#define TEST_CASE_5
 
 int main(){
 
