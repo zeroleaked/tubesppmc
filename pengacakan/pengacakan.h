@@ -29,7 +29,7 @@ arrKata getRandomKey(arrKata *dict, int n)
 
 char* randomWord(arrKata *value, int n){
     int indeks;
-    indeks= rand()%((value->length)-n)-1;
-    char *word=value->array[indeks+n];
+    indeks= rand()%(value->length);
+    char *word=value->array[indeks];
     return (*word);
 }
