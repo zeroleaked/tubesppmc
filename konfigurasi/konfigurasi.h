@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#ifndef config
+#define config
 // dict adalah pointer ke arrKata.
 
 typedef struct arrKata{
@@ -123,8 +125,8 @@ void printDictionary(arrKata dict, int n) {
 
 int compareKey(arrKata dict1, arrKata dict2, int n) { 
   // true if same
-  printArrKata(dict1);
-  printArrKata(dict2);
+  //printArrKata(dict1);
+  //printArrKata(dict2);
   for (int i = 0; i < n; i++)
     if ( strcmp(dict1.array[i], dict2.array[i]) )
     return 0;
@@ -195,3 +197,5 @@ arrKata peekDictionary(arrKata *dict, int i) {
   if (i == 0) return *dict;
   else return peekDictionary(dict->next, i - 1);
 }
+
+#endif

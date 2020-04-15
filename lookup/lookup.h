@@ -20,15 +20,15 @@ void createDictionary(int n, arrKata input_text, arrKata **dict) {
      }
      char *value = input_text.array[i+n];
      pushDictionary(dict, &key, value, n);
-//     freeArrKata(&key);
+     freeArrKata(&key);
     }
 }
 
 void lookupDictionary (arrKata *dict, int n, arrKata key, arrKata *value) {
-  printf("finding ");
-  printArrKata(key);
-  printf("\n");
-
+  //printf("finding ");
+  //printArrKata(key);
+  //printf("\n");
+  
   initializeArrKata(value);
   int dictionary_length = getDictionaryLength(dict);
   for (int i = 0; i < dictionary_length; i ++) {
@@ -41,7 +41,6 @@ void lookupDictionary (arrKata *dict, int n, arrKata key, arrKata *value) {
     }
   }
   printf("not found\n");
-
 }
 
 #endif

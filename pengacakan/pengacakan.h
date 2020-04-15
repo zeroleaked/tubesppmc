@@ -1,12 +1,13 @@
 #include <stdlib.h>
-#include <time.h>
 #include "../konfigurasi/konfigurasi.h"
+
+#ifndef PENGACAKAN
+#define PENGACAKAN
 
 arrKata getRandomKey(arrKata *dict, int n)
 {
     arrKata temp, toReturn;
-    int index, dictLength, currRow = 0, i;
-    srand(time(0));
+    int index, dictLength, i;
 
     dictLength = getDictionaryLength(dict);
     index = rand()%dictLength;
@@ -25,9 +26,12 @@ arrKata getRandomKey(arrKata *dict, int n)
 }
 char* randomWord(arrKata *value){
     int index;
-    srand(time(0));
+
+    //Initialize random number generator (seed at time &t)
     index= rand()%(value->length);
     char *word;
     word = value->array[index];
     return (word);
 }
+
+#endif
