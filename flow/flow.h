@@ -5,7 +5,7 @@
 #include "lookup.h"
 #include "pengacakan.h"
 
-void Flow(arrKata key, arrKata *lookup_table, int n, int printed, int banyak_kata)
+void Flow(arrKata *key, arrKata *lookup_table, int n, int printed, int banyak_kata)
 {
     //deklarasi variabel
     arrKata *value;
@@ -14,7 +14,7 @@ void Flow(arrKata key, arrKata *lookup_table, int n, int printed, int banyak_kat
     if (printed < banyak_kata)
     {
         //obtain values by key, output to *value. More than 1 values is possible
-        lookupDictionary(lookup_table, n, key, value);
+        lookupDictionary(lookup_table, n, *key, value);
         //get one value from the values obtained in prev step
         outVal = randomWord(value);
         //print the value obtained
