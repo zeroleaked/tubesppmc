@@ -2,7 +2,7 @@
 #include <time.h>
 #include "konfigurasi.h"
 
-arrKata getRandomKey(arrKata *dict, int n);
+arrKata getRandomKey(arrKata *dict, int n)
 {
     arrKata *temp, toReturn;
     int index, dictLength, currRow = 0, i;
@@ -29,7 +29,6 @@ arrKata getRandomKey(arrKata *dict, int n);
     }
     
     return toReturn;
-    
 }
 
 char* randomWord(arrKata *value);
