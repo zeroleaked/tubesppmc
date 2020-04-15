@@ -121,11 +121,13 @@ void printDictionary(arrKata dict, int n) {
   printValue(*current, n);
 }
 
-int compareKey(arrKata dict1, arrKata dict2, int n) {
+int compareKey(arrKata dict1, arrKata dict2, int n) { 
   // true if same
-  for (int i = 0; i < n; i++)
-    if ( strcmp(dict1.array[i], dict2.array[i]) )
-      return 0;
+  printArrKata(dict1);
+  printArrKata(dict2);
+  // for (int i = 0; i < n; i++)
+  //   if ( strcmp(dict1.array[i], dict2.array[i]) )
+  //     return 0;
   return 1;
 }
 
@@ -170,7 +172,7 @@ void pushDictionary(arrKata **dict, arrKata *key, char *value, int n) {
         freeArrKata(new_node);
         free(new_node);
       return;
-    }
+      }
 
     current->next = new_node;
     return;
