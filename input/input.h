@@ -1,16 +1,17 @@
-#include<stdio.h>
-#include"konfigurasi.h"
+#include"../konfigurasi/konfigurasi.h"
 
-void inputN (int *n)
+#include<stdio.h>
+
+void inputN (int n)
 {
     printf("Masukkan n : ");
-    scanf("%d",n);
+    scanf("%d", &n);
 }
 
-void inputBanyakKata (int *banyak_kata)
+void inputBanyakKata (int banyak_kata)
 {
     printf("Masukkan jumlah kata yang akan dicetak : ");
-    scanf("%d",banyak_kata);
+    scanf("%d", &banyak_kata);
 }
 
 void inputText (arrKata *input_text)

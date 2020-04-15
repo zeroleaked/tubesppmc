@@ -18,7 +18,7 @@ int main()
     inputBanyakKata(banyak_kata);
 
     //membuat dictionary
-    createDictionary(n, inputText, dict);
+    createDictionary(n, *inText, dict);
 
     //mengambil key pertama secara random
     *Key = getRandomKey(dict, n);
@@ -28,7 +28,7 @@ int main()
     printed = n;
 
     //memperoleh value berdasarkan key (fungsi blm terdefinisi)
-    *value = lookupDictionary(dict, n, Key);
+    lookupDictionary(dict, n, *Key, value);
     //merandom value yang akan dicetak
     *outVal = randomWord(value);
     //mencetak outVal (salah satu value dari key sebelumnya), increment counter
