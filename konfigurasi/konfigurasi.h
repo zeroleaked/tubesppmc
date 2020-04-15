@@ -191,7 +191,3 @@ int getDictionaryLength (arrKata *dict) {
   return 1 + getDictionaryLength(dict->next);
 }
 
-arrKata peekDictionary(arrKata *dict, int i) {
-  if (i == 0) return *dict;
-  else return peekDictionary(dict->next, i - 1);
-}
