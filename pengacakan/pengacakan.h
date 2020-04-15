@@ -4,9 +4,9 @@
 
 arrKata getRandomKey(arrKata *dict, int n)
 {
-    arrKata temp, toReturn;
+    arrKata *temp, toReturn;
     int index, dictLength, currRow = 0, i;
-    temp = dict;
+    initializeArrKata(temp);
 
     srand(time(0));
 
@@ -14,14 +14,14 @@ arrKata getRandomKey(arrKata *dict, int n)
     index = rand()%dictLength;
 
     //menuju ke row yang diinginkan (hasil random)
-    temp = peekDictionary(dict, index);
+    *temp = peekDictionary(dict, index);
 
     //sudah di Row yang diinginkan, assign nilai-nilai untuk return
     toReturn.next = NULL;
     toReturn.length = n;
     for ( i = 0; i < n; i++)
     {
-        pushArrKata(&toReturn, temp.array[i]);
+        pushArrKata(&toReturn, temp->array[i]);
     }
     
     return toReturn;
