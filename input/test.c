@@ -3,17 +3,17 @@
 
 int main()
 {
-    arrKata *inText;
-    int *N, *banyak_kata;
+    arrKata inText;
+    int N, banyak_kata;
 
-    initializeArrKata(inText);
-    inputText(inText);
-    inputN(N);
-    inputBanyakKata(banyak_kata);
+    initializeArrKata(&inText);
+    inputText(&inText);
+    inputN(&N);
+    inputBanyakKata(&banyak_kata);
 
-    printf("Nilai N: %d\n", N);
+    printf("\nNilai N: %d\n", N);
     printf("Banyak kata yang akan dicetak: %d\n", banyak_kata);
-    printArrKata(*inText);
+    printArrKata(inText);
 
     return 0;
 }
