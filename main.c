@@ -23,7 +23,7 @@ int main()
     //mengambil key pertama secara random
     *Key = getRandomKey(dict, n);
     //mencetk n kata pertama (key pertama)
-    printArrKata(*outKey);
+    printArrKata(*Key);
     // set counter untuk menghitung jumlah kata yang sudah dicetak
     printed = n;
 
