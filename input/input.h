@@ -1,17 +1,16 @@
-#include"../konfigurasi/konfigurasi.h"
-
+#include "../konfigurasi/konfigurasi.h"
 #include<stdio.h>
 
-void inputN (int n)
+void inputN (int *n)
 {
     printf("Masukkan n : ");
-    scanf("%d", &n);
+    scanf("%d", n);
 }
 
-void inputBanyakKata (int banyak_kata)
+void inputBanyakKata (int *banyak_kata)
 {
     printf("Masukkan jumlah kata yang akan dicetak : ");
-    scanf("%d", &banyak_kata);
+    scanf("%d", banyak_kata);
 }
 
 void inputText (arrKata *input_text)
@@ -20,11 +19,11 @@ void inputText (arrKata *input_text)
     FILE*text;
 
     printf("Masukkan nama file : ");
-    scanf("%s",&nfile);
+    scanf("%s", nfile);
 
-    text=fopen(("%s",nfile),"r+");
+    text=fopen(nfile,"r");
 
-    while(fscanf(text,"%s",&temp)!=EOF)
+    while(fscanf(text,"%s", temp)!=EOF)
     {
         pushArrKata(input_text, temp);
     }
