@@ -33,57 +33,58 @@ int main()
     printf("Dalam dunia computational linguistics dan probabilitas dikenal istilah n-gram, yaitu rangkaian\nkata-kata, fonem, huruf, suku kata, atau yang lainnya dari sebuah teks atau kalimat. Model\nn-gram merupakan pendekatan bahasa menggunakan konsep probabilitas untuk memprediksi atau\nmenebak kata selanjutnya dari suatu rangkaian kata-kata.\n");
     printf("\n");
     int isEnd=0;
+
     while(isEnd==0){
-    char End[5];
-    //insialisasi arrKata inText
-    initializeArrKata(&inText);
-    initializeArrKata(&value);
+        char End[5];
+        //insialisasi arrKata inText
+        initializeArrKata(&inText);
+        initializeArrKata(&value);
 
-    //User input text, value of n, banyak kata yang ingin dicetak
-    inputText(inText);
-    inputN(&n);
-    inputBanyakKata(&banyak_kata);
-    
-    //membuat dictionary
-    createDictionary(n, *inText, &dict);
+        //User input text, value of n, banyak kata yang ingin dicetak
+        inputText(inText);
+        inputN(&n);
+        inputBanyakKata(&banyak_kata);
+        
+        //membuat dictionary
+        createDictionary(n, *inText, &dict);
 
-    //mengambil key pertama secara random
-    key = getRandomKey(dict, n);
+        //mengambil key pertama secara random
+        key = getRandomKey(dict, n);
 
-    //mencetk n kata pertama (key pertama)
-    while (printed < n)
-    {
-        printf("%s ", key.array[printed]);
+        //mencetk n kata pertama (key pertama)
+        while (printed < n)
+        {
+            printf("%s ", key.array[printed]);
+            printed += 1;
+        }
+        
+        // pada tahap ini printed = n, printed adalah counter berapa banyak yg sudah dicetak
+
+        //memperoleh value berdasarkan key (fungsi blm terdefinisi)
+        lookupDictionary(dict, n, key, &value);
+
+        //merandom value yang akan dicetak
+        outVal = randomWord(value);
+
+        //mencetak outVal (salah satu value dari key sebelumnya), increment counter
+        printf("%s ", outVal);
         printed += 1;
-    }
-    
-    // pada tahap ini printed = n, printed adalah counter berapa banyak yg sudah dicetak
 
-    //memperoleh value berdasarkan key (fungsi blm terdefinisi)
-    lookupDictionary(dict, n, key, &value);
+        //append outVal ke dalam key
+        pushArrKata(&key, outVal);
+        //geser head key->array[0] = key->array[1]
+        deleteHeadArrKata(&key);
 
-    //merandom value yang akan dicetak
-    outVal = randomWord(value);
+        //looping hingga printed = banyak_kata
+        Flow(key, dict, n, printed, banyak_kata);
 
-    //mencetak outVal (salah satu value dari key sebelumnya), increment counter
-    printf("%s ", outVal);
-    printed += 1;
-
-    //append outVal ke dalam key
-    pushArrKata(&key, outVal);
-    //geser head key->array[0] = key->array[1]
-    deleteHeadArrKata(&key);
-
-    //looping hingga printed = banyak_kata
-    Flow(key, dict, n, printed, banyak_kata);
-
-    printf("Apakah Anda Ingin Melakukan Pembacaan Lagi? (Yes/No)\n");
-    scanf("%s",&End);
-    printf("\n");
-    
-    if (strcmp(End, "Yes")){
-        isEnd=1;
-    }
+        printf("Apakah Anda Ingin Melakukan Pembacaan Lagi? (Yes/No)\n");
+        scanf("%s", End);
+        printf("\n");
+        
+        if (strcmp("Yes", End)){
+            isEnd=1;
+        }
     }
     return 0;
 }
