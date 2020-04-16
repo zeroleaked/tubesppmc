@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <string.h>
 #include "pengacakan/pengacakan.h"
 #include "lookup/lookup.h"
 #include "konfigurasi/konfigurasi.h"
@@ -31,6 +32,9 @@ int main()
     printf("\n");
     printf("Dalam dunia computational linguistics dan probabilitas dikenal istilah n-gram, yaitu rangkaian\nkata-kata, fonem, huruf, suku kata, atau yang lainnya dari sebuah teks atau kalimat. Model\nn-gram merupakan pendekatan bahasa menggunakan konsep probabilitas untuk memprediksi atau\nmenebak kata selanjutnya dari suatu rangkaian kata-kata.\n");
     printf("\n");
+    int isEnd=0;
+    while(isEnd==0){
+    char End[5];
     //insialisasi arrKata inText
     initializeArrKata(&inText);
     initializeArrKata(&value);
@@ -73,7 +77,13 @@ int main()
     //looping hingga printed = banyak_kata
     Flow(key, dict, n, printed, banyak_kata);
 
-
-
+    printf("Apakah Anda Ingin Melakukan Pembacaan Lagi? (Yes/No)\n");
+    scanf("%s",&End);
+    printf("\n");
+    
+    if (strcmp(End, "Yes")){
+        isEnd=1;
+    }
+    }
     return 0;
 }
