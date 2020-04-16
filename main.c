@@ -7,6 +7,7 @@
 #include "input/input.h"
 #include "flow/flow.h"
 
+
 int main()
 {
     //deklarasi variabel
@@ -17,7 +18,8 @@ int main()
 
     //set seed utk random
     srand((unsigned) time(&t));
-
+    printf("Selamat Datang di Simulasi N-Gram\n");
+    printf("___________________________________");
     //insialisasi arrKata inText
     initializeArrKata(&inText);
     initializeArrKata(&value);
