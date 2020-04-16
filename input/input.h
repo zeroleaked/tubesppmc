@@ -3,13 +3,13 @@
 
 void inputN (int *n)
 {
-    printf("Masukkan n : ");
+    printf("Masukkan N : ");
     scanf("%d", n);
 }
 
 void inputBanyakKata (int *banyak_kata)
 {
-    printf("Masukkan jumlah kata yang akan dicetak : ");
+    printf("Masukkan Jumlah Kata Yang Akan Dicetak : ");
     scanf("%d", banyak_kata);
 }
 
@@ -18,7 +18,12 @@ void inputText (arrKata *input_text)
     char nfile[20],temp[20];
     FILE*text;
 
-    printf("Masukkan nama file : ");
+    printf("Sok Mangga Dipilih Textnya:\n");
+    printf("APoemFromAFriend.txt\ncisneros.txt\hamlet.txt\nhurston.txt\nisiguro.txt\nladygaga.txt\nmobydick.txt\nmorrison.txt\nshort.txt\ntiny.txt\ntomsawyer.txt\nTextReference_13218066.txt\n");
+    printf("\n");
+    printf("Format Nama File --> text/[Text yang dipilih]\n");
+    printf("\n");
+    printf("Masukkan Nama file : ");
     scanf("%s", nfile);
 
     text=fopen(nfile,"r");
