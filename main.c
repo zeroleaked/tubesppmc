@@ -92,9 +92,9 @@ void addSibling(node *a, node *b) {
 void createTree(node *head, int length, int n) {
   node *a = head;
   for (int i = 0; i < length; i++) {
-    printf("\r%d/%d", i+1, length);
     node *b = findMatch(a, n, length - i);
     if (b != NULL) {
+      printf("\r%d/%d", i+1, length);
       // change b child to a
       b->child = a;
       // add b_value to a_value sibling
@@ -110,7 +110,7 @@ void createTree(node *head, int length, int n) {
   printf("\r               ");
 }
 
-node *countChild(node *head, int length) {
+void *countChild(node *head, int length) {
   for (int i = 0; i < length; i++) {
     int count = 0;
     node *child = head->child;
@@ -140,8 +140,8 @@ node *getRandomNode(node *head, int length) {
 
 int main() {
   // to be user input
-  int n = 1;
-  int print_length = 1000;
+  int n = 4;
+  int print_length = 2000;
   char *infile = "mobydick.txt";
   char *outfile = "outfile.txt";
 
