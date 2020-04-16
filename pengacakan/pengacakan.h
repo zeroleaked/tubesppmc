@@ -6,7 +6,7 @@
 
 arrKata getRandomKey(arrKata *dict, int n)
 {
-    arrKata temp, toReturn;
+    arrKata temp, *toReturn;
     int index, dictLength, i;
 
     dictLength = getDictionaryLength(dict);
@@ -19,10 +19,10 @@ arrKata getRandomKey(arrKata *dict, int n)
     initializeArrKata(&toReturn);
     for ( i = 0; i < n; i++)
     {
-        pushArrKata(&toReturn, temp.array[i]);
+        pushArrKata(toReturn, temp.array[i]);
     }
     
-    return toReturn;
+    return (*toReturn);
 }
 char* randomWord(arrKata *value){
     int index;

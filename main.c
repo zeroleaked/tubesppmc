@@ -10,9 +10,9 @@
 int main()
 {
     //deklarasi variabel
-    arrKata *dict, inText, key, value;
+    arrKata *dict, *inText, key, *value;
     char *outVal;
-    int n, banyak_kata, printed;
+    int n, banyak_kata, printed = 0;
     time_t t;
 
     //set seed utk random
@@ -20,14 +20,16 @@ int main()
 
     //insialisasi arrKata inText
     initializeArrKata(&inText);
+    initializeArrKata(&value);
 
     //User input text, value of n, banyak kata yang ingin dicetak
-    inputText(&inText);
+    inputText(inText);
     inputN(&n);
     inputBanyakKata(&banyak_kata);
-
+    
     //membuat dictionary
-    createDictionary(n, inText, &dict);
+    createDictionary(n, *inText, &dict);
+    printDictionary(*dict, n);
 
     //mengambil key pertama secara random
     key = getRandomKey(dict, n);
@@ -43,10 +45,13 @@ int main()
 
     //memperoleh value berdasarkan key (fungsi blm terdefinisi)
     lookupDictionary(dict, n, key, &value);
+    // printf("lookup clear\n");
+
     //merandom value yang akan dicetak
-    outVal = randomWord(&value);
+    outVal = randomWord(value);
+
     //mencetak outVal (salah satu value dari key sebelumnya), increment counter
-    printf("%s", outVal);
+    printf("%s ", outVal);
     printed += 1;
 
     //append outVal ke dalam key

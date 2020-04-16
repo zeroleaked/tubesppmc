@@ -40,7 +40,7 @@ int main()
     #endif
 
     #ifdef tc2
-    arrKata a;
+    arrKata *a;
     char *output;
     int n = 2;
     time_t t;
@@ -49,14 +49,14 @@ int main()
     srand((unsigned) time(&t));
 
     initializeArrKata(&a);
-    pushArrKata(&a, "ITB");
-    pushArrKata(&a, "Unisba");
-    pushArrKata(&a, "UI");
-    pushArrKata(&a, "Unpad");
-    printArrKata(a);
+    pushArrKata(a, "ITB");
+    // pushArrKata(&a, "Unisba");
+    // pushArrKata(&a, "UI");
+    // pushArrKata(&a, "Unpad");
+    printArrKata(*a);
     for (size_t i = 0; i < 10; i++)
     {
-        output = randomWord(&a);
+        output = randomWord(a);
         printf("%s\n", output); 
     }
     

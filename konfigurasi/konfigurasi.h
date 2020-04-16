@@ -160,12 +160,7 @@ void pushDictionary(arrKata **dict, arrKata *key, char *value, int n) {
 
     arrKata *current = *dict;
     while (current->next != NULL) {
-      printf("s\n");
-      // arrKata temp1;
-      // arrKata temp2;
-
-      // temp1 = *current;
-      // temp2 = *new_node;
+      //printf("%s\n", );
       if ( compareKey(*current, *new_node, n) ) {
         if ( wordUnique(*current, value, n) )
           pushArrKata(current, value);

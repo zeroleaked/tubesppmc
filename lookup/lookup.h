@@ -5,26 +5,30 @@
 
 void createDictionary(int n, arrKata input_text, arrKata **dict);
 
-void lookupDictionary (arrKata *dict, int n, arrKata key, arrKata *value);
+void lookupDictionary (arrKata *dict, int n, arrKata key, arrKata **value);
 
 void createDictionary(int n, arrKata input_text, arrKata **dict) {
   initializeDictionary(dict);
 
   arrKata *current = *dict;
-   for (int i = 0; i < input_text.length - n; i++) {
-     arrKata key;
+   for (int i = 0; i < input_text.length; i++) {
+     arrKata *key;
      initializeArrKata(&key);
-
+    
      for (int j = 0; j < n; j++) {
-       pushArrKata(&key, input_text.array[i+j]);
+       pushArrKata(key, input_text.array[(i+j)%input_text.length]);
      }
-     char *value = input_text.array[i+n];
-     pushDictionary(dict, &key, value, n);
-     freeArrKata(&key);
+     char *value;
+
+     value = input_text.array[(i+n)%input_text.length];
+
+     pushDictionary(dict, key, value, n);
+     freeArrKata(key);
     }
+   
 }
 
-void lookupDictionary (arrKata *dict, int n, arrKata key, arrKata *value) {
+void lookupDictionary (arrKata *dict, int n, arrKata key, arrKata **value) {
   //printf("finding ");
   //printArrKata(key);
   //printf("\n");
@@ -35,7 +39,7 @@ void lookupDictionary (arrKata *dict, int n, arrKata key, arrKata *value) {
     arrKata dictionary_entry = peekDictionary(dict, i);
     if (compareKey( key, dictionary_entry, n )) {
       for (int i = n; i < dictionary_entry.length; i ++) {
-        pushArrKata(value, dictionary_entry.array[i]);
+        pushArrKata(*value, dictionary_entry.array[i]);
       }
       return;
     }
