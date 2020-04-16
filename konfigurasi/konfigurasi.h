@@ -13,7 +13,7 @@ typedef struct arrKata{
 } arrKata;
 
 // harus dipanggil setelah deklarasi arr_kata, sebelum prosedur arrKata lainnya
-void initializeArrKata(arrKata *arr_kata);
+void initializeArrKata(arrKata **arr_kata);
 
 // menambahkan kata ke akhir arr_kata dan menambahkan length
 void pushArrKata(arrKata *arr_kata, char *kata);
@@ -54,10 +54,11 @@ arrKata peekDictionary(arrKata *dict, int i);
 int compareKey(arrKata dict1, arrKata dict2, int n);
 
 // Kalau butuh fungsi lain, ngobrol ya
-void initializeArrKata(arrKata *ptr) {
-  ptr->array = NULL;
-  ptr->next = NULL;
-  ptr->length = 0;
+void initializeArrKata(arrKata **ptr) {
+  *ptr = (arrKata *) malloc(sizeof (arrKata));
+  (*ptr)->array = NULL;
+  (*ptr)->next = NULL;
+  (*ptr)->length = 0;
 }
 
 void printArrKata(arrKata arr_kata) {
@@ -143,7 +144,7 @@ int wordUnique(arrKata dict, char *word, int n) {
 
 void pushDictionary(arrKata **dict, arrKata *key, char *value, int n) {
     arrKata* new_node = (arrKata*) malloc(sizeof(arrKata*));
-    initializeArrKata(new_node);
+    initializeArrKata(&new_node);
 
     for (int i = 0; i < key->length; i++) {
       pushArrKata(new_node, key->array[i]);
@@ -160,26 +161,29 @@ void pushDictionary(arrKata **dict, arrKata *key, char *value, int n) {
     arrKata *current = *dict;
     while (current->next != NULL) {
       printf("s\n");
-      printArrKata(*current);
-      printArrKata(*new_node);
-      // if ( compareKey(*current, *new_node, n) ) {
-      //   if ( wordUnique(*current, value, n) )
-      //     pushArrKata(current, value);
-      //     freeArrKata(new_node);
-      //     free(new_node);
-      //   return;
-      // }
-      // current = current->next;
-    }
-    // if ( compareKey(*current, *new_node, n) ) {
-    //   if ( wordUnique(*current, value, n) )
-    //     pushArrKata(current, value);
-    //     freeArrKata(new_node);
-    //     free(new_node);
-    //   return;
-    //   }
+      // arrKata temp1;
+      // arrKata temp2;
 
-    // current->next = new_node;
+      // temp1 = *current;
+      // temp2 = *new_node;
+      if ( compareKey(*current, *new_node, n) ) {
+        if ( wordUnique(*current, value, n) )
+          pushArrKata(current, value);
+          freeArrKata(new_node);
+          free(new_node);
+        return;
+      }
+      current = current->next;
+    }
+    if ( compareKey(*current, *new_node, n) ) {
+      if ( wordUnique(*current, value, n) )
+        pushArrKata(current, value);
+        freeArrKata(new_node);
+        free(new_node);
+      return;
+      }
+
+    current->next = new_node;
     return;
 }
 

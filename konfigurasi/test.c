@@ -61,36 +61,36 @@ int main(){
 
   int n = 2;
 
-  arrKata key;
+  arrKata *key;
   initializeArrKata(&key);
-  pushArrKata(&key, "the");
-  pushArrKata(&key, "quick");
-  pushDictionary(&dict, &key, "brown", n);
-  freeArrKata(&key);
+  pushArrKata(key, "the");
+  pushArrKata(key, "quick");
+  pushDictionary(&dict, key, "brown", n);
+  freeArrKata(key);
 
   initializeArrKata(&key);
-  pushArrKata(&key, "the");
-  pushArrKata(&key, "quick");
-  pushDictionary(&dict, &key, "fox", n);
-  freeArrKata(&key);
+  pushArrKata(key, "the");
+  pushArrKata(key, "quick");
+  pushDictionary(&dict, key, "fox", n);
+  freeArrKata(key);
 
   initializeArrKata(&key);
-  pushArrKata(&key, "the");
-  pushArrKata(&key, "quick");
-  pushDictionary(&dict, &key, "jumped", n);
-  freeArrKata(&key);
+  pushArrKata(key, "the");
+  pushArrKata(key, "quick");
+  pushDictionary(&dict, key, "jumped", n);
+  freeArrKata(key);
 
   initializeArrKata(&key);
-  pushArrKata(&key, "over");
-  pushArrKata(&key, "the");
-  pushDictionary(&dict, &key, "lazy", n);
-  freeArrKata(&key);
+  pushArrKata(key, "over");
+  pushArrKata(key, "the");
+  pushDictionary(&dict, key, "lazy", n);
+  freeArrKata(key);
 
   initializeArrKata(&key);
-  pushArrKata(&key, "over");
-  pushArrKata(&key, "the");
-  pushDictionary(&dict, &key, "cats", n);
-  freeArrKata(&key);
+  pushArrKata(key, "over");
+  pushArrKata(key, "the");
+  pushDictionary(&dict, key, "cats", n);
+  freeArrKata(key);
 
   printDictionary(*dict, n);
 
