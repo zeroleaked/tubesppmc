@@ -15,18 +15,10 @@ typedef struct node{
 
 node *addToEmpty(node *last, char word[MAX_WORD_LENGTH])
 {
-    // This function is only for empty list
-    if (last != NULL)
-      return last;
-
-    // Creating a node dynamically.
     last = (node*)malloc(sizeof(node));
 
-    // Assigning the word.
     strcpy(last -> word, word);
 
-    // Note : list was empty. We link single node
-    // to itself.
     last -> next = last;
     last -> sibling = NULL;
     last -> child_length = 1;
@@ -67,7 +59,6 @@ void freeList(node *head)
 
 // false if not same, true if same;
 int compareTwoNodes(node *a, node *b, int n) {
-  // printf("comparing [%s %s] [%s %s]\n", a->word, a->next->word, b->word, b->next->word);
   for (int i = 0; i < n; i++) {
     if (strcmp(a->word, b->word)) return 0;
     a = a->next;
@@ -81,7 +72,6 @@ node *findMatch(node *a, int n, int length) {
   node *b = a;
   for (int i = 1; i < length; i++) {
     if (compareTwoNodes(a, b->next, n)) {
-      // printf("a = [%s %s], b = [%s %s]\n", a->word, a->next->word, b->next->word, b->next->next->word);
       return b;
     }
     b = b->next;
@@ -102,9 +92,7 @@ void createTree(node *head, int length, int n) {
   for (int i = 0; i < length; i++) {
     node *b = findMatch(a, n, length - i);
     if (b != NULL) {
-      // printf("b = [%s %s %s]\n", b->word, b->next->word, b->next->next->word);
       // change b child to a
-      // printf("a = %s\n", a->word);
       b->child = a;
       // add b_value to a_value sibling
       node *a_value = a, *b_value = b->next;
@@ -112,12 +100,10 @@ void createTree(node *head, int length, int n) {
         a_value = a_value->next;
         b_value = b_value->next;
       }
-      // printf("a_value = %s, b_value = %s\n", a_value->word, b_value->word);
       addSibling(a_value, b_value);
     }
     a = a->next;
   }
-  printf("finished building tree\n");
 }
 
 node *countChild(node *head, int length) {
@@ -149,7 +135,7 @@ node *getRandomNode(node *head, int length) {
 }
 
 int main() {
-  // user input
+  // to be user input
   int n = 2;
   int print_length = 100;
   char *infile = "mobydick.txt";
@@ -157,6 +143,7 @@ int main() {
 
 
   // scan text
+  printf("reading text\n");
   FILE *fptr = fopen(infile, "r");
   char temp[MAX_WORD_LENGTH];
 
@@ -175,6 +162,7 @@ int main() {
   }
 
   // create tree
+  printf("creating tree\n");
   createTree(last->next, length, n);
   countChild(last->next, length);
 
