@@ -29,7 +29,6 @@ int main()
     
     //membuat dictionary
     createDictionary(n, *inText, &dict);
-    printDictionary(*dict, n);
 
     //mengambil key pertama secara random
     key = getRandomKey(dict, n);
@@ -45,7 +44,6 @@ int main()
 
     //memperoleh value berdasarkan key (fungsi blm terdefinisi)
     lookupDictionary(dict, n, key, &value);
-    // printf("lookup clear\n");
 
     //merandom value yang akan dicetak
     outVal = randomWord(value);
