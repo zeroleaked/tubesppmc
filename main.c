@@ -7,7 +7,9 @@
 
 typedef struct node{
   char word[MAX_WORD_LENGTH];
+  // simple circular list to iterate through everything
   struct node *next;
+  // markov chain
   int child_length;
   struct node *child;
   struct node *sibling;
@@ -90,6 +92,7 @@ void addSibling(node *a, node *b) {
 void createTree(node *head, int length, int n) {
   node *a = head;
   for (int i = 0; i < length; i++) {
+    printf("\r%d/%d", i+1, length);
     node *b = findMatch(a, n, length - i);
     if (b != NULL) {
       // change b child to a
@@ -104,6 +107,7 @@ void createTree(node *head, int length, int n) {
     }
     a = a->next;
   }
+  printf("\r               ");
 }
 
 node *countChild(node *head, int length) {
@@ -136,8 +140,8 @@ node *getRandomNode(node *head, int length) {
 
 int main() {
   // to be user input
-  int n = 2;
-  int print_length = 100;
+  int n = 1;
+  int print_length = 1000;
   char *infile = "mobydick.txt";
   char *outfile = "outfile.txt";
 
@@ -165,6 +169,7 @@ int main() {
   printf("creating tree\n");
   createTree(last->next, length, n);
   countChild(last->next, length);
+  printf("\rtree done\n");
 
   // mainkeun
   printf("printing...\n");
