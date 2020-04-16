@@ -1,5 +1,7 @@
 {
     "files.associations": {
-        "flow.h": "c"
+        "flow.h": "c",
+        "pengacakan.h": "c",
+        "stdlib.h": "c"
     }
 }

@@ -1,16 +1,22 @@
 #include <stdio.h>
-#include "pengacakan.h"
-#include "lookup.h"
-#include "konfigurasi.h"
-#include "input.h"
-#include "flow.h"
+#include <stdlib.h>
+#include <time.h>
+#include "pengacakan/pengacakan.h"
+#include "lookup/lookup.h"
+#include "konfigurasi/konfigurasi.h"
+#include "input/input.h"
+#include "flow/flow.h"
 
 int main()
 {
     //deklarasi variabel
-    arrKata *dict, inText, Key, value;
+    arrKata *dict, inText, key, value;
     char *outVal;
     int n, banyak_kata, printed;
+    time_t t;
+
+    //set seed utk random
+    srand((unsigned) time(&t));
 
     //insialisasi arrKata inText
     initializeArrKata(&inText);
@@ -21,34 +27,35 @@ int main()
     inputBanyakKata(&banyak_kata);
 
     //membuat dictionary
-    createDictionary(n, inText, dict);
+    createDictionary(n, inText, &dict);
 
     //mengambil key pertama secara random
-    Key = getRandomKey(dict, n);
+    key = getRandomKey(dict, n);
+
     //mencetk n kata pertama (key pertama)
     while (printed < n)
     {
-        printf("%s ", Key.array[printed]);
+        printf("%s ", key.array[printed]);
         printed += 1;
     }
     
     // pada tahap ini printed = n, printed adalah counter berapa banyak yg sudah dicetak
 
     //memperoleh value berdasarkan key (fungsi blm terdefinisi)
-    lookupDictionary(dict, n, Key, &value);
+    lookupDictionary(dict, n, key, &value);
     //merandom value yang akan dicetak
     outVal = randomWord(&value);
     //mencetak outVal (salah satu value dari key sebelumnya), increment counter
-    printf("%s", *outVal);
+    printf("%s", outVal);
     printed += 1;
 
     //append outVal ke dalam key
-    pushArrKata(&Key, outVal);
+    pushArrKata(&key, outVal);
     //geser head key->array[0] = key->array[1]
-    deleteHeadArrKata(&Key);
+    deleteHeadArrKata(&key);
 
     //looping hingga printed = banyak_kata
-    Flow(Key, dict, n, printed, banyak_kata);
+    Flow(key, dict, n, printed, banyak_kata);
 
 
 
