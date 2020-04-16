@@ -20,7 +20,7 @@ void inputText (arrKata *input_text)
 
     printf("Sok Mangga Dipilih Textnya:\n");
     printf("APoemFromAFriend.txt\ncisneros.txt\hamlet.txt\nhurston.txt\nisiguro.txt\nladygaga.txt\nmobydick.txt\nmorrison.txt\nshort.txt\ntiny.txt\ntomsawyer.txt\nTextReference_13218066.txt\n");
-    printf("Atau Masukkan Pilihan Teksmu.")
+    printf("Atau Masukkan Pilihan Teksmu.");
     printf("\n");
     printf("Format Nama File --> input/[Text yang dipilih]\n");
     printf("\n");
