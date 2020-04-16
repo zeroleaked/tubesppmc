@@ -18,8 +18,19 @@ int main()
 
     //set seed utk random
     srand((unsigned) time(&t));
-    printf("Selamat Datang di Simulasi N-Gram\n");
-    printf("___________________________________");
+    printf("                            Welcome to N-Gram Simulation\n");
+    printf("                                Delivered by Group C6\n");
+    printf("\n");
+    printf("__________________________________________________________________________________________\n");
+    printf("\n");
+    printf("1.Kendrik Emkel Ginting 13218077\n");
+    printf("2.Rizki Habibi Alamsyah 13218080\n");
+    printf("3.Mohammad Salman Subki 13218078\n");
+    printf("4.Anindhita Nayazirly   13218083\n");
+    printf("5.Michael Kresna Putra  13218066\n");
+    printf("\n");
+    printf("Dalam dunia computational linguistics dan probabilitas dikenal istilah n-gram, yaitu rangkaian\nkata-kata, fonem, huruf, suku kata, atau yang lainnya dari sebuah teks atau kalimat. Model\nn-gram merupakan pendekatan bahasa menggunakan konsep probabilitas untuk memprediksi atau\nmenebak kata selanjutnya dari suatu rangkaian kata-kata.\n");
+    printf("\n");
     //insialisasi arrKata inText
     initializeArrKata(&inText);
     initializeArrKata(&value);
