@@ -1,3 +1,14 @@
+/* EL2208 Praktikum Pemecahan Masalah dengan C 2019/2020
+* MODUL 8 – TUGAS BESAR
+* Kelompok : C6
+* Hari dan Tanggal : Jumat, 17 April 2020
+* Asisten (NIM) : Sarah Az Zahra (13216099)
+* Nama File : input.h
+* Deskripsi : Program untuk mengambil masukan(input) dari user.
+yaitu input n, input nama file, dan input banyak kata yang ingin dicetak.
+*/
+
+
 #include "../konfigurasi/konfigurasi.h"
 #include<stdio.h>
 
