@@ -3,7 +3,7 @@
 #include <string.h>
 #include <time.h>
 
-#define MAX_WORD_LENGTH 32
+#define MAX_WORD_LENGTH 255
 
 typedef struct node{
   char word[MAX_WORD_LENGTH];
@@ -142,8 +142,8 @@ int main() {
   // to be user input
   int n = 4;
   int print_length = 2000;
-  char *infile = "mobydick.txt";
-  char *outfile = "outfile.txt";
+  char *infile = "morrison.txt";
+  char *outfile = "outfile3.txt";
 
 
   // scan text
