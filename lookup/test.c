@@ -6,7 +6,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include "lookup.h"
-
 #define MAX_WORD_LENGTH 255
 
 // pilih satu test case
@@ -16,11 +15,11 @@
 // #define TEST_CASE_4
 // #define TEST_CASE_5
 
-int main(){
+int main()
+{
 
   #ifdef TEST_CASE_1
   int n = 2;
-
   arrKata arr_kata;
   initializeArrKata(&arr_kata);
   char *filename = "../konfigurasi/text2.txt";
