@@ -157,7 +157,7 @@ node *getRandomNode(node *head, int length) {
 int inputN ()
 {
     int n;
-    printf("Masukkan N : ");
+    printf("Masukkan N                              : ");
     scanf("%d", &n);
     return n;
 }
@@ -166,7 +166,7 @@ int inputN ()
 int inputBanyakKata ()
 {
     int banyak_kata;
-    printf("Masukkan Jumlah Kata Yang Akan Dicetak : ");
+    printf("Masukkan Jumlah Kata Yang Akan Dicetak  : ");
     scanf("%d", &banyak_kata);
     return banyak_kata;
 }
@@ -174,20 +174,18 @@ int inputBanyakKata ()
 // input nama untuk i/o file
 void textFile (char (*infile)[MAX_WORD_LENGTH], char (*outfile)[MAX_WORD_LENGTH])
 {
-    printf("Masukkan Nama file input : ");
+    printf("Masukkan Nama file input                : ");
     scanf("%s", *infile);
-    printf("Masukkan Nama file output : ");
+    printf("Masukkan Nama file output               : ");
     scanf("%s", *outfile);
 }
 
 int main() {
-<<<<<<< HEAD
   // to be user input
   int n ;
   int print_length ;
-  char infile[255];
+  char infile[255], outfile[255];
   time_t t;
-  char *outfile = "outfile3.txt";
   srand((unsigned)(time(&t)));
   printf("                            Welcome to N-Gram Simulation\n");
   printf("                                Delivered by Group C6\n");
@@ -210,52 +208,40 @@ int main() {
   int isEnd=0;
   char End[5];
   char coba[5];
+  node *last = NULL;
   while(akhir==0){
-    printf("Masukkan Text File                        :");scanf("%s",infile);
-    printf("Masukkan N                                :");scanf("%d",&n);
-  //while (isEnd==0){
-  //printf("Masukkan Jumlah Kata Yang Ingin Dicetak   :");scanf("%d",&print_length);
-  //printf("\n");
-=======
-   // user input
-  int n = inputN();
-  int print_length = inputBanyakKata();
+    //terima input dari user
+    textFile(&infile, &outfile);
+    n = inputN();
 
-  char infile[MAX_WORD_LENGTH];
-  char outfile[MAX_WORD_LENGTH];
-  textFile(&infile,&outfile);
-
->>>>>>> ac0588ee66ea391f659611727e62e86e4e5760d8
-  // scan text
-  //printf("reading text..\n");
+    // open file
     FILE *fptr = fopen(infile, "r");
     char temp[MAX_WORD_LENGTH];
-
-    node *last = NULL;
     int length = 0;
+    // read file, add to node
     while (fscanf(fptr, "%s", temp) != EOF) {
       last = addEnd(last, temp);
       length++;
     }
-  //printf("length = %d\n", length);
+    //printf("length = %d\n", length);
 
-  // copy next to child
+    // copy next to child
     for (int i = 0; i < length; i++) {
       last->child = last->next;
       last = last->next;
     }
-  // create tree
-<<<<<<< HEAD
+   // create tree
     printf("Processing...\n");
     createTree(last->next, length, n);
     countChild(last->next, length);
     printf("\rTree Created\n");
     while (isEnd==0){
-      printf("Masukkan Jumlah Kata Yang Ingin Dicetak   :");scanf("%d",&print_length);
+      //input user banyak kata to print
+      print_length = inputBanyakKata();
       printf("\n");
-      // mainkeun
+
+      // Print to console and file
       printf("Printing...\n\n");
-      //srand(time(0));
       int max;
       node *print = getRandomNode(last, length);
       fptr = fopen(outfile, "w");
@@ -276,42 +262,11 @@ int main() {
       isEnd=1;
       }
     }
-  printf("Wish to restart?(Yes/No)\n");scanf("%s",coba);
-  if (strcmp(coba,"Yes")){
-    akhir=1;
-=======
-  printf("creating tree\n");
-  createTree(last->next, length, n);
-  countChild(last->next, length);
-  printf("\rtree done\n");
-
-  // mainkeun
-  printf("printing...\n");
-  srand(time(0));
-  int max;
-  node *print = getRandomNode(last, length);
-  fptr = fopen(outfile, "w");
-  fprintf(fptr, "... ");
-  for (int i = 0; i < print_length; i++) {
-
-    fprintf(fptr, "%s ", print->word);
-
-    printf("%s\n", print->word);
-    printf("child = ");
-    node *child = print->child;
-    for (int j = 0; j < print->child_length; j++) {
-      printf("%s ", child->word);
-      child = child->sibling;
-    }
-    printf("\n");
-
-    max = print->child_length;
-    int num = (rand() % max);
-    print = getChild(print, num);
->>>>>>> ac0588ee66ea391f659611727e62e86e4e5760d8
+    printf("Wish to restart?(Yes/No)\n");scanf("%s",coba);
+    if (strcmp(coba,"Yes")){
+      akhir=1;
+    }  
   }
-  }
-  
 
   #ifdef DEBUG
   // ini nge print semua node
