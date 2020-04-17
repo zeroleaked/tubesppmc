@@ -31,7 +31,6 @@ void Flow(arrKata key, arrKata *lookup_table, int n, int printed, int banyak_kat
         pushArrKata(&key, outVal);
         deleteHeadArrKata(&key);
     }
-    printf("\n");
     return;
 }
 
