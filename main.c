@@ -210,7 +210,7 @@ int main() {
   printf("Dalam dunia computational linguistics dan probabilitas dikenal istilah n-gram, yaitu rangkaian\nkata-kata, fonem, huruf, suku kata, atau yang lainnya dari sebuah teks atau kalimat. Model\nn-gram merupakan pendekatan bahasa menggunakan konsep probabilitas untuk memprediksi atau\nmenebak kata selanjutnya dari suatu rangkaian kata-kata.\n");
   printf("\n");
   printf("Sok Mangga Dipilih Textnya:\n");
-  printf("APoemFromAFriend.txt\ncisneros.txt\nhamlet.txt\nhurston.txt\nisiguro.txt\nladygaga.txt\nmobydick.txt\nmorrison.txt\nshort.txt\ntiny.txt\ntomsawyer.txt\nTextReference_13218066.txt\nTextReference_13218077.txt\n");
+  printf("APoemFromAFriend.txt\ncisneros.txt\nhamlet.txt\nhurston.txt\nisiguro.txt\nladygaga.txt\nmobydick.txt\nmorrison.txt\nshort.txt\ntiny.txt\ntomsawyer.txt\nTextReference_13218066.txt\nTextReference_13218077.txt\nTextReference_13218078.txt\nTextReference_13218080.txt\n");
   printf("Atau Masukkan Pilihan Teksmu.");
   printf("\n\n");
   int isEnd=0;
@@ -275,7 +275,7 @@ int main() {
     printf("Wish to restart?(Yes/No)\n");scanf("%s",coba);
     if (strcmp(coba,"Yes")){
       akhir=1;
-    }  
+    }
   }
 
   #ifdef DEBUG
@@ -300,6 +300,5 @@ int main() {
   // unlink circular list
   node *head = last -> next;
   last->next = NULL;
-
-  freeList(head);
+  freeList(head);  
 }
