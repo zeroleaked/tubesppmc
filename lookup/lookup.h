@@ -9,7 +9,6 @@ void lookupDictionary (arrKata *dict, int n, arrKata key, arrKata **value);
 
 void createDictionary(int n, arrKata input_text, arrKata **dict) {
   initializeDictionary(dict);
-
   arrKata *current = *dict;
    for (int i = 0; i < input_text.length; i++) {
      arrKata *key;
@@ -19,13 +18,10 @@ void createDictionary(int n, arrKata input_text, arrKata **dict) {
        pushArrKata(key, input_text.array[(i+j)%input_text.length]);
      }
      char *value;
-
      value = input_text.array[(i+n)%input_text.length];
-
      pushDictionary(dict, key, value, n);
      freeArrKata(key);
     }
-   
 }
 
 void lookupDictionary (arrKata *dict, int n, arrKata key, arrKata **value) {
