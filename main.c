@@ -154,7 +154,7 @@ int inputBanyakKata ()
     return banyak_kata;
 }
 
-void textFile (char *infile[255],char *outfile[255])
+void textFile (char *infile[MAX_WORD_LENGTH],char *outfile[MAX_WORD_LENGTH])
 {
     printf("Masukkan Nama file input : ");
     scanf("%s", infile);
@@ -166,8 +166,8 @@ int main() {
    // to be user input
   int n = inputN();
   int print_length = inputBanyakKata();
-  char infile[255];
-  char outfile[255];
+  char infile[MAX_WORD_LENGTH];
+  char outfile[MAX_WORD_LENGTH];
 
   textFile(&infile,&outfile);
 
