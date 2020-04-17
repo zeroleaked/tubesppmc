@@ -1,3 +1,14 @@
+/* EL2208 Praktikum Pemecahan Masalah dengan C 2019/2020
+* MODUL 8 – TUGAS BESAR
+* Kelompok : C6
+* Hari dan Tanggal : Jumat, 17 April 2020
+* Asisten (NIM) : Sarah Az Zahra (13216099)
+* Nama File : flow.h
+* Deskripsi : Program untuk mengatur 'aliran' (flow)
+keberjalanan program utama memanfaatkan fungsi-fungsi yang telah dibuat
+pada bagian sebelumnya untuk memecahkan masalah dan mengeluarkan output.
+*/
+
 //Flow oleh Kendrik Emkel Ginting
 
 #include <stdio.h>
