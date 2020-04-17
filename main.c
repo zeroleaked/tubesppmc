@@ -233,6 +233,7 @@ int main() {
       last = addEnd(last, temp);
       length++;
     }
+    fclose(fptr);
     //printf("length = %d\n", length);
 
     // copy next to child
@@ -264,6 +265,7 @@ int main() {
         int num = (rand() % max);
         print = getChild(print, num);
       }
+      fclose(fptr);
       fprintf(fptr, "...");
       printf("...\n\n");
       printf("Finished Printing\n\n");
@@ -275,6 +277,12 @@ int main() {
     printf("Wish to restart?(Yes/No)\n");scanf("%s",coba);
     if (strcmp(coba,"Yes")){
       akhir=1;
+    }  else
+    {
+      node *head = last -> next;
+      last->next = NULL;
+      freeList(head);
+      last = NULL;
     }
   }
 
@@ -300,5 +308,6 @@ int main() {
   // unlink circular list
   node *head = last -> next;
   last->next = NULL;
-  freeList(head);  
+
+  freeList(head);
 }
