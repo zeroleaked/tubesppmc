@@ -138,13 +138,38 @@ node *getRandomNode(node *head, int length) {
   return head;
 }
 
-int main() {
-  // to be user input
-  int n = 4;
-  int print_length = 2000;
-  char *infile = "morrison.txt";
-  char *outfile = "outfile3.txt";
+int inputN ()
+{
+    int n;
+    printf("Masukkan N : ");
+    scanf("%d", &n);
+    return n;
+}
 
+int inputBanyakKata ()
+{
+    int banyak_kata;
+    printf("Masukkan Jumlah Kata Yang Akan Dicetak : ");
+    scanf("%d", &banyak_kata);
+    return banyak_kata;
+}
+
+void textFile (char *infile[255],char *outfile[255])
+{
+    printf("Masukkan Nama file input : ");
+    scanf("%s", infile);
+    printf("Masukkan Nama file output : ");
+    scanf("%s", outfile);
+}
+
+int main() {
+   // to be user input
+  int n = inputN();
+  int print_length = inputBanyakKata();
+  char infile[255];
+  char outfile[255];
+
+  textFile(&infile,&outfile);
 
   // scan text
   printf("reading text\n");
