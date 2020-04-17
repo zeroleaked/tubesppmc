@@ -204,12 +204,13 @@ int main() {
   printf("APoemFromAFriend.txt\ncisneros.txt\nhamlet.txt\nhurston.txt\nisiguro.txt\nladygaga.txt\nmobydick.txt\nmorrison.txt\nshort.txt\ntiny.txt\ntomsawyer.txt\nTextReference_13218066.txt\nTextReference_13218077.txt\n");
   printf("Atau Masukkan Pilihan Teksmu.");
   printf("\n\n");
-  int akhir=0;
   int isEnd=0;
+  int akhir=0;
   char End[5];
   char coba[5];
   node *last = NULL;
   while(akhir==0){
+    isEnd = 0;
     //terima input dari user
     textFile(&infile, &outfile);
     n = inputN();
