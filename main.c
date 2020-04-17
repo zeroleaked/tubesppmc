@@ -172,12 +172,12 @@ int inputBanyakKata ()
 }
 
 // input nama untuk i/o file
-void textFile (char *infile[MAX_WORD_LENGTH],char *outfile[MAX_WORD_LENGTH])
+void textFile (char (*infile)[MAX_WORD_LENGTH], char (*outfile)[MAX_WORD_LENGTH])
 {
     printf("Masukkan Nama file input : ");
-    scanf("%s", infile);
+    scanf("%s", *infile);
     printf("Masukkan Nama file output : ");
-    scanf("%s", outfile);
+    scanf("%s", *outfile);
 }
 
 int main() {
@@ -222,7 +222,18 @@ int main() {
   fptr = fopen(outfile, "w");
   fprintf(fptr, "... ");
   for (int i = 0; i < print_length; i++) {
+
     fprintf(fptr, "%s ", print->word);
+
+    printf("%s\n", print->word);
+    printf("child = ");
+    node *child = print->child;
+    for (int j = 0; j < print->child_length; j++) {
+      printf("%s ", child->word);
+      child = child->sibling;
+    }
+    printf("\n");
+
     max = print->child_length;
     int num = (rand() % max);
     print = getChild(print, num);
